@@ -23,3 +23,13 @@ test:
 .PHONY: clean
 clean:
 	./scripts/clean.sh
+
+.PHONY: install
+install:
+	go env -w GOPROXY=https://goproxy.cn,direct && \
+	go get \
+	github.com/gogo/protobuf/protoc-gen-gogo \
+	github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway \
+	github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger \
+	github.com/mwitkow/go-proto-validators/protoc-gen-govalidators \
+	github.com/rakyll/statik
